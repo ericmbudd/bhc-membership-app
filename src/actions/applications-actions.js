@@ -1,0 +1,25 @@
+const APPLICATIONS_LISTED = 'APPLICATIONS_LISTED'
+
+const listTodos = ( { token } ) => {
+  const url = `${ process.env.REACT_APP_API_URL }/applications`
+
+  const opts = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      //'Authorization': `Bearer ${ token }`
+    }
+  }
+
+  return( dispatch ) => {
+    fetch( url, opts ).then( ( result ) => result.json() ).then( ( result ) => {
+      dispatch( { type: APPLICATIONS_LISTED, payload: result } )
+    } )
+  }
+}
+
+export {
+  APPLICATIONS_LISTED,
+  listTodos
+}
