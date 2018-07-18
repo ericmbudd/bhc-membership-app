@@ -1,6 +1,6 @@
 const APPLICATIONS_LISTED = 'APPLICATIONS_LISTED'
 
-const listTodos = ( { token } ) => {
+const listApplications = ( { token } ) => {
   const url = `${ process.env.REACT_APP_API_URL }/applications`
 
   const opts = {
@@ -21,5 +21,5 @@ const listTodos = ( { token } ) => {
 
 export {
   APPLICATIONS_LISTED,
-  listTodos
+  listApplications
 }
