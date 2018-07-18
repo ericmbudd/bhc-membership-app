@@ -6,7 +6,7 @@ function ApplicationsReducer( state = null, action ) {
   if ( state ) {
     switch ( action.type ) {
       case APPLICATIONS_LISTED:
-      console.log("action.payload", action.payload)
+      //console.log("action.payload", action.payload)
         const applications = action.payload.reduce( ( acc, x ) => {
           const newObj = {
             ...acc
