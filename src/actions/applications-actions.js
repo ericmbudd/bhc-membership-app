@@ -1,10 +1,10 @@
 const APPLICATIONS_LISTED = 'APPLICATIONS_LISTED'
 
-const listApplications = ( { token } ) => {
-  const url = `${ process.env.REACT_APP_API_URL }/applications`
+const listApplications = () => {
+  const url = `https://bhc-server.herokuapp.com/applications`
 
 
-  console.log(process.env.REACT_APP_API_URL)
+  console.log('url', url)
   const opts = {
     method: 'GET',
     headers: {
@@ -14,10 +14,13 @@ const listApplications = ( { token } ) => {
     }
   }
 
-  return( dispatch ) => {
-    fetch( url, opts ).then( ( result ) => result.json() ).then( ( result ) => {
-      dispatch( { type: APPLICATIONS_LISTED, payload: result } )
-    } )
+  return(dispatch) => {
+    fetch(url, opts)
+    .then((result) => result.json())
+    .then((result) => {
+      dispatch({ type: APPLICATIONS_LISTED, payload: result })
+    })
+    .catch((err) => {console.log('err', err)})
   }
 }
 

@@ -7,26 +7,37 @@ import { StyleSheet, Text, View } from 'react-native';
 class ApplicationIndex extends Component {
   componentDidMount() {
     console.log('ApplicationIndex mount')
-    this.props.listApplications({ token: undefined }) //this.props.auth.token
+    console.log(Object.keys(this.props))
+    this.props.listApplications({  }) //this.props.auth.token
   }
 
   render() {
-    console.log('test')
-    const applicationKeys = Object.keys(this.props.applications)
-    if (applicationKeys.length === 0) {
-      return <Text>No applications</Text>
-    } else {
-      return (<div>
-        <h1>Applications</h1>
-        <p>...do not knock out your to do list, call it stupid!</p>
-        {applicationKeys.map((id) => <p key={id}>{this.props.applications[id].item}</p>)}
-      </div>)
-    }
+    return <Text>bleh</Text>
+    // const applicationKeys = Object.keys(this.props.applications)
+    // console.log(applicationKeys)
+    // if (applicationKeys.length === 0) {
+    //   return <Text>No applications</Text>
+    // } else {
+    //   return (<div>
+    //     <h1>Applications</h1>
+    //     <p>...do not knock out your to do list, call it stupid!</p>
+    //     {applicationKeys.map((id) => <p key={id}>{this.props.applications[id].item}</p>)}
+    //   </div>)
+    // }
   }
 }
 
-const mapStateToProps = (state) => ({ auth: state.auth, applications: state.applications })
+// const ApplicationIndex = () =>{
+//   return <Text>Hello</Text>
+// }
+
+//auth: state.auth,
+const mapStateToProps = (state) => ({ applications: state.applications })
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   listApplications
 }, dispatch)
+
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationIndex)
+
+
+// export default ApplicationIndex

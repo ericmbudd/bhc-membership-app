@@ -16,7 +16,7 @@ export default class App extends React.Component {
     return (
       (<Provider store={createStoreWithMiddleware(reducers)}>
       <View style={styles.container}>
-
+        <ApplicationIndex />
         <Text>Open up App.js to start working on your app, yo!</Text>
         <Text>Changes you make will automatically reload.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
