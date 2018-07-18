@@ -6,14 +6,15 @@ function ApplicationsReducer( state = null, action ) {
   if ( state ) {
     switch ( action.type ) {
       case APPLICATIONS_LISTED:
-        const todos = action.payload.applications.reduce( ( acc, x ) => {
+      console.log("action.payload", action.payload)
+        const applications = action.payload.reduce( ( acc, x ) => {
           const newObj = {
             ...acc
           }
           newObj[ x.id ] = x
           return newObj
         }, {} )
-        return todos
+        return applications
       default:
         return state
     }
