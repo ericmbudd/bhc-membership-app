@@ -29,6 +29,7 @@ export default class App extends React.Component {
            </View>
           </View>
           <View style={styles.contentContainer}>
+            <ApplicationIndex />
           </View>
          </View>
     </Provider>)) //, document.getElementById('root')
