@@ -9,6 +9,7 @@ import { createStore, applyMiddleware } from 'redux'
 import reducers from './src/reducers/root-reducer'
 import Header from './src/components/header'
 import ApplicationIndex from './src/components/application-container'
+import ApplicationList from './src/components/application-list'
 
 //
 
@@ -29,7 +30,7 @@ export default class App extends React.Component {
            </View>
           </View>
           <View style={styles.contentContainer}>
-            <ApplicationIndex />
+            <ApplicationList />
           </View>
          </View>
     </Provider>)) //, document.getElementById('root')
