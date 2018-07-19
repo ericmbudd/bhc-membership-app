@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 class Header extends Component {
 //<Text style={styles.header}>Test</Text>
   render() {
-      return (<View>
+      return (<View style={{flex: 1, flexDirection: 'row'}}>
         <Image
          style={{width: 50, height: 50}}
          source={require('../../images/BHC_Logo.jpg')}
