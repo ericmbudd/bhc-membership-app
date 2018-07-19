@@ -12,8 +12,6 @@ import Expo from 'expo'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 
-
-// <ApplicationIndex />
 export default class App extends React.Component {
   render() {
     return (
