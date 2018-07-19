@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 class Header extends Component {
-
+//<Text style={styles.header}>Test</Text>
   render() {
-      return (
+      return (<View>
+        <Image
+         style={{width: 50, height: 50}}
+         source={require('../../images/BHC_Logo.jpg')}
+       />
+
         <Text style={styles.header}>BHC Membership</Text>
+      </View>
 )
 
     }
@@ -16,7 +22,8 @@ class Header extends Component {
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    backgroundColor: '#555',
+    //height: 300,
+    //backgroundColor: '#777',
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: 40,

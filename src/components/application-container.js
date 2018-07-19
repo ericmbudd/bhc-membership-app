@@ -16,16 +16,26 @@ class ApplicationIndex extends Component {
     const applicationKeys = Object.keys(this.props.applications)
     console.log(applicationKeys)
     if (applicationKeys.length === 0) {
-      return (<Text>No applications</Text>)
+      return (<Text style={styles.rows}>No applications</Text>)
     } else {
       return (
       <View>
-        {applicationKeys.map((id) => <Text key={id}>{this.props.applications[id].first_name}</Text> )}
+        {applicationKeys.map((id) => <Text style={styles.rows} key={id}>{this.props.applications[id].first_name}</Text> )}
    </View>)
     }
   }
 }
 
+
+const styles = StyleSheet.create({
+  rows: {
+    //flex: 1,
+    backgroundColor: '#DDD',
+    //alignItems: 'center',
+    //justifyContent: 'center',
+    fontSize: 120,
+  },
+});
 
 
 
