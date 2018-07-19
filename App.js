@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Expo from 'expo'
+
 
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
@@ -8,7 +10,7 @@ import reducers from './src/reducers/root-reducer'
 import Header from './src/components/header'
 import ApplicationIndex from './src/components/application-container'
 
-import Expo from 'expo'
+
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 
