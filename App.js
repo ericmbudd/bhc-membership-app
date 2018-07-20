@@ -8,34 +8,53 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import reducers from './src/reducers/root-reducer'
 import Header from './src/components/header'
-import ApplicationIndex from './src/components/application-container'
+import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
+import Application from './src/components/application'
+import Activity from './src/components/activity'
 import ApplicationList from './src/components/application-list'
 
 //
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 
-export default class App extends React.Component {
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    headerTitle: <Header img="" headerTitle="BHC Membership" />,
+    headerStyle: {
+        paddingTop: 0, // clears the default Header margin for the status bar
+        height: 100 // sets new height for the Header
+      }
+  }
+
 
   render() {
     //console.log(Expo)
     return (
       (<Provider store={createStoreWithMiddleware(reducers)}>
         <View style={styles.mainContainer}>
-          <View style={styles.headerContainer}>
-           <Header headerTitle="BHC Membership" />
-           <View style={styles.leftHeaderContainer}>
-           </View>
-           <View style={styles.rightHeaderContainer}>
-           </View>
-          </View>
-          <View style={styles.contentContainer}>
-            <ApplicationList />
+          <Text onPress={() => this.props.navigation.navigate('Activity')}
+            >AAAA</Text>
+          <View
+            style={styles.contentContainer}>
+            <ApplicationList
+
+          />
           </View>
          </View>
     </Provider>)) //, document.getElementById('root')
   }
 }
+
+const RootStack = createStackNavigator(
+  {
+    HomeScreen: HomeScreen,
+    Activity: Activity,
+  },
+  {
+    initialRouteName: 'HomeScreen',
+  }
+);
+
 
 
 const styles = StyleSheet.create({
@@ -74,3 +93,10 @@ const styles = StyleSheet.create({
     marginLeft: 10
  },
 });
+
+
+export default class App extends React.Component {
+  render() {
+    return <RootStack />;
+  }
+}

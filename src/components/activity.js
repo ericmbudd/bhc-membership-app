@@ -9,18 +9,18 @@ import { createStackNavigator } from 'react-navigation'; // Version can be speci
 
 
 class Activity extends React.Component {
+  static navigationOptions = {
+    headerTitle: <Header img="fail" headerTitle="Visit" />,
+    headerStyle: {
+        paddingTop: 0, // clears the default Header margin for the status bar
+        height: 100 // sets new height for the Header
+      }
+  }
 
   render() {
     //console.log(Expo)
     return (
       (<View style={styles.mainContainer}>
-          <View style={styles.headerContainer}>
-           <Header headerTitle="Visit" />
-           <View style={styles.leftHeaderContainer}>
-           </View>
-           <View style={styles.rightHeaderContainer}>
-           </View>
-          </View>
           <View style={styles.contentContainer}>
             <Text>Test</Text>
           </View>
@@ -32,7 +32,7 @@ class Activity extends React.Component {
 
 const styles = StyleSheet.create({
  mainContainer: {
-    paddingTop: Expo.Constants.statusBarHeight,
+    //paddingTop: Expo.Constants.statusBarHeight,
     flex: 1,
     backgroundColor: '#F5FCFF',
     height: 24
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
  },
  contentContainer: {
-    flex: 7,
+    flex: 6,
  },
  logoText: {
     color: "white",
