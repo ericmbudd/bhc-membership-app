@@ -37,6 +37,8 @@ export default class App extends React.Component {
   }
 }
 
+//#81af52
+
 const styles = StyleSheet.create({
  mainContainer: {
     paddingTop: Expo.Constants.statusBarHeight,
@@ -48,9 +50,11 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "#81af52",
+    backgroundColor: "#fff",
     alignItems:"center",
-    paddingRight: 5
+    paddingRight: 5,
+    borderBottomColor: "#81af52",
+    borderBottomWidth: 6,
  },
  leftHeaderContainer: {
     alignItems: "flex-start",
@@ -61,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
  },
  contentContainer: {
-    flex: 6,
+    flex: 7,
  },
  logoText: {
     color: "white",
