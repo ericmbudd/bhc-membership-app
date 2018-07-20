@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { listApplications } from '../actions/applications-actions'
 import { StyleSheet, Text, View, FlatList } from 'react-native';
+
+import { listApplications } from '../actions/applications-actions'
+import Application from './application'
 
 class ApplicationList extends Component {
   componentDidMount() {
@@ -17,6 +19,7 @@ class ApplicationList extends Component {
  let dataArray = []
 
  for (let key in this.props.applications) {
+   this.props.applications[key].key = String(this.props.applications[key].id)
    dataArray.push(this.props.applications[key])
  }
 
@@ -25,10 +28,9 @@ console.log(dataArray)
 
  return(
    <FlatList
-     //data={[{key: 'a'}, {key: 'b'}]}
-     //renderItem={({item}) => <Text>{item.key}</Text>}
      data={dataArray}
-     renderItem={({item}) => <Text>{item.current_city}</Text>}
+     //renderItem={({item}) => <Text>{item.first_name} {item.last_name}</Text>}
+     renderItem={({item}) => <Application app={item} />}
    />
  )
  }
@@ -44,6 +46,11 @@ const styles = StyleSheet.create({
     fontSize: 120,
   },
 });
+
+
+
+
+
 
 
 
