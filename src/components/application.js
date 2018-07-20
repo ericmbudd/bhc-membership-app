@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { StyleSheet, Text, View, Image, Icon } from 'react-native';
-
+import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
+import Activity from './activity'
 
 class Application extends Component {
 
@@ -17,7 +18,8 @@ class Application extends Component {
     <View style = {styles.callerDetailsContainer}>
      <View style={styles.callerDetailsContainerWrap}>
       <View style={styles.nameContainer}>
-        <Text>{this.props.app.first_name} {this.props.app.last_name}</Text>
+        <Text onPress={() => this.props.navigation.navigate('Activity')}
+          >{this.props.app.first_name} {this.props.app.last_name}</Text>
         <View style={styles.dateContainer}>
 
           <Text style={{ fontWeight:'400', color:'#666', fontSize:12 }}>{this.props.app.current_city}, {this.props.app.current_state}</Text>
@@ -32,6 +34,16 @@ class Application extends Component {
   )
  }
 }
+
+const RootStack = createStackNavigator(
+  {
+    Application: Application,
+    Activity: Activity,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
 
 const styles = StyleSheet.create({
   logoText: {

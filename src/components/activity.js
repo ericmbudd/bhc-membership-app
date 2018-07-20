@@ -2,38 +2,30 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Expo from 'expo'
 
+import reducers from '../reducers/root-reducer'
+import Header from './header'
 
-import thunk from 'redux-thunk'
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import reducers from './src/reducers/root-reducer'
-import Header from './src/components/header'
-import ApplicationIndex from './src/components/application-container'
-import ApplicationList from './src/components/application-list'
+import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
-//
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
-
-export default class App extends React.Component {
+class Activity extends React.Component {
 
   render() {
     //console.log(Expo)
     return (
-      (<Provider store={createStoreWithMiddleware(reducers)}>
-        <View style={styles.mainContainer}>
+      (<View style={styles.mainContainer}>
           <View style={styles.headerContainer}>
-           <Header headerTitle="BHC Membership" />
+           <Header headerTitle="Visit" />
            <View style={styles.leftHeaderContainer}>
            </View>
            <View style={styles.rightHeaderContainer}>
            </View>
           </View>
           <View style={styles.contentContainer}>
-            <ApplicationList />
+            <Text>Test</Text>
           </View>
          </View>
-    </Provider>)) //, document.getElementById('root')
+    ))
   }
 }
 
@@ -74,3 +66,6 @@ const styles = StyleSheet.create({
     marginLeft: 10
  },
 });
+
+
+export default Activity

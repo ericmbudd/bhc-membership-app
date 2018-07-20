@@ -11,7 +11,7 @@ class Header extends Component {
          source={require('../../images/BHC_Logo.jpg')}
        />
 
-        <Text style={styles.header}>BHC Membership</Text>
+        <Text style={styles.header}>{this.props.headerTitle}</Text>
       </View>
 )
 
