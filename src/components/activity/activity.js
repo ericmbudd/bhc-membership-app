@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import Expo from 'expo'
 
 import reducers from '../../reducers/root-reducer'
@@ -47,9 +47,15 @@ static navigationOptions = ({ navigation  }) => {
     <Visit />
   </View>
   <View style={styles.footerContainer}>
-   <View style={styles.leftHeaderContainer}>
+   <View style={styles.leftFooterContainer}>
+     <Text>Left</Text>
    </View>
-   <View style={styles.rightHeaderContainer}>
+   <View style={styles.rightFooterContainer}>
+     <Image
+      style={{width: 65, height: 65}}
+      source={require("../../../images/states/references.png")}
+    />
+    <Text style={{fontSize: 48}}>➡</Text>
    </View>
   </View>
  </View>
@@ -70,11 +76,26 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems:"center",
-    paddingRight: 5,
+    //paddingRight: 5,
     borderBottomColor: "#81af52",
     borderBottomWidth: 6,
     backgroundColor: "#81af52",
  },
+ leftFooterContainer: {
+   alignItems: "flex-start",
+   flexDirection: "row",
+   backgroundColor: "#fff"
+},
+rightFooterContainer: {
+   alignItems: "flex-end",
+   flexDirection: "row",
+   backgroundColor: "#fff",
+   alignItems:"center",
+   height: 150,
+   marginLeft: 10,
+   paddingLeft: 5,
+   paddingRight: 10,
+},
  contentContainer: {
     flex: 6,
     alignItems: "center",
