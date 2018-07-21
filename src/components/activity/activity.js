@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Expo from 'expo'
 
-import reducers from '../reducers/root-reducer'
-import Header from './header'
+import reducers from '../../reducers/root-reducer'
+import Header from '../header'
 import Visit from './visit'
 
 import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
@@ -42,7 +42,17 @@ static navigationOptions = ({ navigation  }) => {
 
   render() {
     return (
-      <Visit />
+      <View style={styles.mainContainer}>
+  <View style={styles.contentContainer}>
+    <Visit />
+  </View>
+  <View style={styles.footerContainer}>
+   <View style={styles.leftHeaderContainer}>
+   </View>
+   <View style={styles.rightHeaderContainer}>
+   </View>
+  </View>
+ </View>
     )
   }
 }
@@ -55,15 +65,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
     height: 24
  },
- headerContainer: {
+ footerContainer: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "#fff",
     alignItems:"center",
     paddingRight: 5,
     borderBottomColor: "#81af52",
     borderBottomWidth: 6,
+    backgroundColor: "#81af52",
  },
  contentContainer: {
     flex: 6,

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import Expo from 'expo'
 import Communications from 'react-native-communications';
 
-import reducers from '../reducers/root-reducer'
+import reducers from '../../reducers/root-reducer'
 
 
 class Visit extends React.Component {
@@ -22,7 +22,7 @@ class Visit extends React.Component {
               <View style={styles.holder}>
                 <Image
                  style={{width: 65, height: 65}}
-                 source={require("../../images/text.png")}
+                 source={require("../../../images/text.png")}
                />
                 <Text style={styles.text}>Text</Text>
               </View>

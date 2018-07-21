@@ -9,11 +9,9 @@ import { createStore, applyMiddleware } from 'redux'
 import reducers from './src/reducers/root-reducer'
 import Header from './src/components/header'
 import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
-import Application from './src/components/application'
-import Activity from './src/components/activity'
-import ApplicationList from './src/components/application-list'
 
-//
+import Activity from './src/components/activity/activity'
+import ApplicationList from './src/components/application-list'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 const store = createStoreWithMiddleware(reducers)
