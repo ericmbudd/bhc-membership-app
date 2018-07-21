@@ -45,7 +45,10 @@ static navigationOptions = ({ navigation  }) => {
     return (
       (<View style={styles.mainContainer}>
           <View style={styles.contentContainer}>
-            <Text>Test</Text>
+            <Text style={{fontSize: 48}}>No Visits Scheduled</Text>
+          </View>
+          <View style={styles.contentContainer}>
+            <Text style={{fontSize: 48}}>Send A Visit Request</Text>
           </View>
          </View>
     ))
@@ -70,16 +73,14 @@ const styles = StyleSheet.create({
     borderBottomColor: "#81af52",
     borderBottomWidth: 6,
  },
- leftHeaderContainer: {
-    alignItems: "flex-start",
-    flexDirection: "row"
- },
- rightHeaderContainer: {
-    alignItems: "flex-end",
-    flexDirection: "row"
- },
  contentContainer: {
     flex: 6,
+    alignItems: "center",
+    paddingTop: 30,
+    borderBottomColor: "#444",
+    borderBottomWidth: 5,
+    borderRadius: 5,
+    borderStyle: 'dashed',
  },
  logoText: {
     color: "white",
