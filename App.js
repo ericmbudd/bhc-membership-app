@@ -16,6 +16,7 @@ import ApplicationList from './src/components/application-list'
 //
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
+const store = createStoreWithMiddleware(reducers)
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -30,7 +31,7 @@ class HomeScreen extends React.Component {
   render() {
     //console.log(Expo)
     return (
-      (<Provider store={createStoreWithMiddleware(reducers)}>
+      (<Provider store={store}>
         <View style={styles.mainContainer}>
           <Text onPress={() => this.props.navigation.navigate('Activity')}
             >AAAA</Text>
