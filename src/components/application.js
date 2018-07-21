@@ -16,12 +16,11 @@ class Application extends Component {
     <View style = {styles.callerDetailsContainer}>
      <View style={styles.callerDetailsContainerWrap}>
       <View style={styles.nameContainer}>
-        <Text
-onPress={() => this.props.navigation.navigate('Activity')}
+        <Text style={styles.dateContainer}
           >{this.props.app.first_name} {this.props.app.last_name}</Text>
         <View style={styles.dateContainer}>
 
-          <Text style={{ fontWeight:'400', color:'#666', fontSize:12 }}>{this.props.app.current_city}, {this.props.app.current_state}</Text>
+          <Text style={{ fontWeight:'400', color:'#666', fontSize:14 }}>{this.props.app.current_city}, {this.props.app.current_state}</Text>
         </View>
        </View>
      <View style={styles.callIconContainer}>
@@ -72,7 +71,8 @@ const styles = StyleSheet.create({
   dateContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    fontSize: 24
   },
   callIconContainer: {
     flex: 1,
