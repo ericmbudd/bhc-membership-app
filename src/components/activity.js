@@ -4,6 +4,7 @@ import Expo from 'expo'
 
 import reducers from '../reducers/root-reducer'
 import Header from './header'
+import Visit from './visit'
 
 import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
 import { withNavigation } from 'react-navigation';
@@ -40,18 +41,9 @@ static navigationOptions = ({ navigation  }) => {
     };
 
   render() {
-    //console.log(Expo)
-
     return (
-      (<View style={styles.mainContainer}>
-          <View style={styles.contentContainer}>
-            <Text style={{fontSize: 48}}>No Visits Scheduled</Text>
-          </View>
-          <View style={styles.contentContainer}>
-            <Text style={{fontSize: 48}}>Send A Visit Request</Text>
-          </View>
-         </View>
-    ))
+      <Visit />
+    )
   }
 }
 
