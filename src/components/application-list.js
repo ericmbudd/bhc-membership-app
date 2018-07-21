@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 import { listApplications } from '../actions/applications-actions'
 import Application from './application'
+import { withNavigation } from 'react-navigation';
 
 class ApplicationList extends Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ console.log(dataArray)
    <FlatList
      data={dataArray}
      //renderItem={({item}) => <Text>{item.first_name} {item.last_name}</Text>}
-     renderItem={({item}) => <Application app={item} />}
+     renderItem={({item}) => <Application app={item} navigation={this.props.navigation} />}
    />
  )
  }

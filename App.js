@@ -33,11 +33,9 @@ class HomeScreen extends React.Component {
     return (
       (<Provider store={store}>
         <View style={styles.mainContainer}>
-          <Text onPress={() => this.props.navigation.navigate('Activity')}
-            >AAAA</Text>
           <View
             style={styles.contentContainer}>
-            <ApplicationList
+            <ApplicationList navigation={this.props.navigation}
 
           />
           </View>

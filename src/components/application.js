@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { StyleSheet, Text, View, Image, Icon, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 class Application extends Component {
 
