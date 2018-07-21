@@ -16,7 +16,7 @@ class Application extends Component {
     <View style = {styles.callerDetailsContainer}>
      <View style={styles.callerDetailsContainerWrap}>
       <View style={styles.nameContainer}>
-        <Text style={styles.dateContainer}
+        <Text style={{fontSize:24}}
           >{this.props.app.first_name} {this.props.app.last_name}</Text>
         <View style={styles.dateContainer}>
 
@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    fontSize: 24
   },
   callIconContainer: {
     flex: 1,
