@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { StyleSheet, Text, View, Image, Icon } from 'react-native';
+import { StyleSheet, Text, View, Image, Icon, TouchableOpacity } from 'react-native';
 
 class Application extends Component {
 
@@ -9,6 +9,7 @@ class Application extends Component {
 
 
  return (
+   <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity')}>
    <View style = {styles.listItemContainer}>
     <View style= {styles.iconContainer}>
      <Image source={require('../../images/states/fail.png')} style={styles.initStyle} resizeMode='contain' />
@@ -29,6 +30,7 @@ class Application extends Component {
     </View>
    </View>
   </View>
+</TouchableOpacity>
   )
  }
 }
