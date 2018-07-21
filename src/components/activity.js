@@ -6,19 +6,42 @@ import reducers from '../reducers/root-reducer'
 import Header from './header'
 
 import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
-
+import { withNavigation } from 'react-navigation';
 
 class Activity extends React.Component {
-  static navigationOptions = {
-    headerTitle: <Header img="fail" headerTitle="Visit" />,
-    headerStyle: {
-        paddingTop: 0, // clears the default Header margin for the status bar
-        height: 100 // sets new height for the Header
-      }
-  }
+
+  componentWillMount(){
+        const {setParams} = this.props.navigation;
+        setParams({headerState: this.props.navigation.state.params.appState});
+
+}
+
+static navigationOptions = ({ navigation  }) => {
+        const {state} = navigation;
+
+        let headerTitle = ''
+
+        if(state.params != undefined){
+          let str = state.params.appState.toLowerCase().split(' ')
+          for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+          }
+          headerTitle = str.join(' ')
+
+            return {
+              headerTitle: <Header img={state.params.headerState} headerTitle={headerTitle} />,
+              headerStyle: {
+                  paddingTop: 0, // clears the default Header margin for the status bar
+                  height: 100 // sets new height for the Header
+                }
+            }
+        }
+
+    };
 
   render() {
     //console.log(Expo)
+
     return (
       (<View style={styles.mainContainer}>
           <View style={styles.contentContainer}>

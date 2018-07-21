@@ -7,13 +7,33 @@ import { withNavigation } from 'react-navigation';
 class Application extends Component {
 
  render() {
-
+   let icon = ''
+   //console.log("this.props.img", this.props.img)
+   switch (this.props.img) {
+   case "fail":
+     icon = require("../../images/states/fail.png")
+     break
+   case "visit":
+     icon = require("../../images/states/visit.png")
+     break
+   case "references":
+     icon = require("../../images/states/references.png")
+     break
+   case "interview":
+     icon = require("../../images/states/interview.png")
+     break
+   case "accepted":
+     icon = require("../../images/states/accepted.png")
+     break
+   default:
+     icon = require("../../images/BHC_Logo.jpg")
+   }
 
  return (
-   <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity')}>
+   <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { appState: this.props.img})}>
    <View style = {styles.listItemContainer}>
     <View style= {styles.iconContainer}>
-     <Image source={require('../../images/states/fail.png')} style={styles.initStyle} resizeMode='contain' />
+     <Image source={icon} style={styles.initStyle} resizeMode='contain' />
     </View>
     <View style = {styles.callerDetailsContainer}>
      <View style={styles.callerDetailsContainerWrap}>

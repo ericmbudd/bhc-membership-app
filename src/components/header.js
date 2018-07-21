@@ -9,8 +9,20 @@ class Header extends Component {
     let icon = ''
     switch (this.props.img) {
     case "fail":
+      icon = require("../../images/states/fail.png")
+      break
+    case "visit":
       icon = require("../../images/states/visit.png")
-      break;
+      break
+    case "references":
+      icon = require("../../images/states/references.png")
+      break
+    case "interview":
+      icon = require("../../images/states/interview.png")
+      break
+    case "accepted":
+      icon = require("../../images/states/accepted.png")
+      break
     default:
       icon = require("../../images/BHC_Logo.jpg")
     }

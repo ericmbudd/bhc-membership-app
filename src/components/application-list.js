@@ -24,14 +24,14 @@ class ApplicationList extends Component {
    dataArray.push(this.props.applications[key])
  }
 
-console.log(dataArray)
+//console.log(dataArray)
 
 
  return(
    <FlatList
      data={dataArray}
      //renderItem={({item}) => <Text>{item.first_name} {item.last_name}</Text>}
-     renderItem={({item}) => <Application app={item} navigation={this.props.navigation} />}
+     renderItem={({item}) => <Application app={item} img={item.state} navigation={this.props.navigation} />}
    />
  )
  }
