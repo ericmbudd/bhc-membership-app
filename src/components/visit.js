@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import Expo from 'expo'
+import Communications from 'react-native-communications';
 
 import reducers from '../reducers/root-reducer'
+
 
 class Visit extends React.Component {
   render() {
@@ -15,7 +17,17 @@ class Visit extends React.Component {
           </View>
           <View style={styles.request}>
             <Text style={{fontSize: 48}}>Send A Visit Request</Text>
-            <Text style={{fontSize: 48}}>TEXT</Text>
+            <View style={styles.commTypes}>
+            <TouchableOpacity onPress={() => Communications.text('3149419370', 'omg I am sending this text from my app')}>
+              <View style={styles.holder}>
+                <Image
+                 style={{width: 65, height: 65}}
+                 source={require("../../images/text.png")}
+               />
+                <Text style={styles.text}>Text</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
           </View>
          </View>
     ))
@@ -45,12 +57,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 30,
  },
+ commTypes: {
+    flex: 2,
+    alignItems: "center",
+    paddingTop: 50,
+ },
  logoText: {
     color: "white",
     fontWeight: "bold",
     fontSize: 16,
     alignItems: "flex-start",
     marginLeft: 10
+ },
+ holder: {
+   flex: 0.75,
+   justifyContent: 'center',
+ },
+ text: {
+   fontSize: 32,
  },
 });
 
