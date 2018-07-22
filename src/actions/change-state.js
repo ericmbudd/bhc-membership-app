@@ -13,6 +13,7 @@ const changeState = (id, application) => dispatch => {
 
   return dispatch({
         type: CHANGE_STATE,
+        id: id,
         payload: result
       })
 }

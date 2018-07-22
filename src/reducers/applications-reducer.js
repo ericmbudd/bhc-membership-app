@@ -23,7 +23,9 @@ function ApplicationsReducer( state = null, action ) {
 
       case CHANGE_STATE:
       console.log("I'm in change state yo")
-        return { ...state, all: action.payload }
+      console.log({...state, [action.id]: action.payload})
+
+        return { ...state, [action.id]: action.payload }
 
       default:
         return state
