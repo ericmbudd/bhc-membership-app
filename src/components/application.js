@@ -7,9 +7,10 @@ import { changeState } from '../actions/change-state'
 
 class Application extends Component {
 
-  returnData() {
+  returnData(appState) {
+    console.log("return data state", appState)
     //<TouchableOpacity onPress={() => this.props.changeState(this.props.app.applications_id, this.props.app)}>
-    this.props.changeState(this.props.app.applications_id, this.props.app);
+    this.props.changeState(this.props.app.applications_id, this.props.app, appState);
   }
 
  render() {
@@ -40,7 +41,7 @@ class Application extends Component {
 
  return (
 
-    <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { appState: this.props.img, returnData: this.returnData.bind(this)})}>
+    <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { application: this.props.app, returnData: this.returnData.bind(this)})}>
    <View style = {styles.listItemContainer}>
     <View style= {styles.iconContainer}>
      <Image source={icon} style={styles.initStyle} resizeMode='contain' />

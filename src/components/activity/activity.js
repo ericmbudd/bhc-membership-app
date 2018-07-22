@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Expo from 'expo'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import {
+  APP_STATE_TABLE,
+} from '../../constants'
 
 import reducers from '../../reducers/root-reducer'
 import Header from '../header'
@@ -15,8 +18,9 @@ import { withNavigation } from 'react-navigation';
 class Activity extends React.Component {
 
   componentWillMount(){
+    console.log("this.props.navigation.state.params", this.props.navigation.state.params)
         const {setParams} = this.props.navigation;
-        setParams({headerState: this.props.navigation.state.params.appState});
+        setParams({headerState: this.props.navigation.state.params.application.state});
 
 }
 
@@ -26,7 +30,7 @@ static navigationOptions = ({ navigation  }) => {
         let headerTitle = ''
 
         if(state.params != undefined){
-          let str = state.params.appState.toLowerCase().split(' ')
+          let str = state.params.application.state.toLowerCase().split(' ')
           for (var i = 0; i < str.length; i++) {
             str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
           }
@@ -43,31 +47,71 @@ static navigationOptions = ({ navigation  }) => {
 
     }
 
-    goBackWithData() {
-      this.props.navigation.state.params.returnData('2', 'Name of item');
+    goBackWithData(appState) {
+      console.log("appState", appState)
+      this.props.navigation.state.params.returnData(appState);
       this.props.navigation.goBack();
+    }
+
+    pickIcon (state) {
+      let icon = ""
+      switch (state) {
+      case "fail":
+        icon = require('../../../images/states/fail.png')
+        break
+      case 'visit':
+        icon = require('../../../images/states/visit.png')
+        break
+      case 'references':
+        icon = require('../../../images/states/references.png')
+        break
+      case 'interview':
+        icon = require('../../../images/states/interview.png')
+        break
+      case 'accepted':
+        icon = require('../../../images/states/accepted.png')
+        break
+      default:
+        icon = require('../../../images/BHC_Logo.jpg')
+      }
+
+      return icon
     }
 
 
 
-
   render() {
+
+    const nextState = APP_STATE_TABLE[this.props.navigation.state.params.application.state]['next']
+    const prevState = APP_STATE_TABLE[this.props.navigation.state.params.application.state]['prev']
+    const nextStateIcon = this.pickIcon(APP_STATE_TABLE[this.props.navigation.state.params.application.state]['next'])
+    const prevStateIcon = this.pickIcon(APP_STATE_TABLE[this.props.navigation.state.params.application.state]['prev'])
+
+    //console.log("this.props.img", this.props.img)
+
+
     return (
       <View style={styles.mainContainer}>
   <View style={styles.contentContainer}>
     <Visit />
   </View>
   <View style={styles.footerContainer}>
+<TouchableOpacity onPress={() => this.goBackWithData(prevState)}>
    <View style={styles.leftFooterContainer}>
-     <Text>Left</Text>
+     <Text style={{fontSize: 48}}>←</Text>
+     <Image
+      style={{width: 65, height: 65}}
+      source={prevStateIcon}
+    />
    </View>
-<TouchableOpacity onPress={() => this.goBackWithData()}>
+</TouchableOpacity>
+<TouchableOpacity onPress={() => this.goBackWithData(nextState)}>
    <View style={styles.rightFooterContainer}>
      <Image
       style={{width: 65, height: 65}}
-      source={require("../../../images/states/references.png")}
+      source={nextStateIcon}
     />
-    <Text style={{fontSize: 48}}>➡</Text>
+    <Text style={{fontSize: 48}}>→</Text>
    </View>
 </TouchableOpacity>
   </View>
@@ -97,7 +141,12 @@ const styles = StyleSheet.create({
  leftFooterContainer: {
    alignItems: "flex-start",
    flexDirection: "row",
-   backgroundColor: "#fff"
+   backgroundColor: "#fff",
+   alignItems:"center",
+   height: 150,
+   marginRight: 10,
+   paddingRight: 5,
+   paddingLeft: 10,
 },
 rightFooterContainer: {
    alignItems: "flex-end",

@@ -3,12 +3,12 @@ import cloneDeep from 'lodash/cloneDeep'
 const CHANGE_STATE = 'CHANGE_STATE'
 
 
-const changeState = (id, application) => dispatch => {
+const changeState = (id, application, appState) => dispatch => {
   console.log("id", id)
   //console.log("application", application)
  const result = cloneDeep(application)
 
-  result.state = "references"
+  result.state = appState
 
   //console.log("updated application", result)
 
