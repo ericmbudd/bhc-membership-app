@@ -34,7 +34,7 @@ class Application extends Component {
 //<TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { appState: this.props.img})}>
  return (
 
-   <TouchableOpacity onPress={() => changeState(1, this.props.app)}>
+   <TouchableOpacity onPress={() => this.props.changeState(1, this.props.app)}>
    <View style = {styles.listItemContainer}>
     <View style= {styles.iconContainer}>
      <Image source={icon} style={styles.initStyle} resizeMode='contain' />
@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
 
 // auth: state.auth,
 const mapStateToProps = (state) => ({ applications: state.applications })
+
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
 changeState
