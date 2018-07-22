@@ -2,11 +2,13 @@ import cloneDeep from 'lodash/cloneDeep'
 
 const CHANGE_STATE = 'CHANGE_STATE'
 
-const changeState = (id) => dispatch => {
-const result = cloneDeep(this.state.applications)
-console.log("this.state.applications", this.state.applications)
+const changeState = (id, applications) => {
+  //console.log("this.props", this.props)
+  //const result = cloneDeep(this.state.applications)
 
-  return dispatch({
+
+  return (dispatch) =>
+    dispatch({
         type: CHANGE_STATE,
         payload: result
       })

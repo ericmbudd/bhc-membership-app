@@ -1,3 +1,4 @@
+import cloneDeep from 'lodash/cloneDeep'
 import { APPLICATIONS_LISTED } from '../actions/applications-actions.js'
 import { CHANGE_STATE } from '../actions/change-state.js'
 
@@ -15,7 +16,7 @@ function ApplicationsReducer( state = null, action ) {
 
           return newObj
         }, {} )
-        console.log("applications", applications)
+        //console.log("applications", applications)
         return applications
 
       case CHANGE_STATE:

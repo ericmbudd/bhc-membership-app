@@ -31,10 +31,10 @@ class Application extends Component {
    }
 
 
- //<TouchableOpacity onPress={() => changeState(1)}>
+//<TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { appState: this.props.img})}>
  return (
-  <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { appState: this.props.img})}>
 
+   <TouchableOpacity onPress={() => changeState(1, this.props.app)}>
    <View style = {styles.listItemContainer}>
     <View style= {styles.iconContainer}>
      <Image source={icon} style={styles.initStyle} resizeMode='contain' />
