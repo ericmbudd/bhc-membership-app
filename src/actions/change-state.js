@@ -4,12 +4,13 @@ const CHANGE_STATE = 'CHANGE_STATE'
 
 
 const changeState = (id, application) => dispatch => {
-  console.log("application", application)
+  console.log("id", id)
+  //console.log("application", application)
  const result = cloneDeep(application)
 
   result.state = "references"
 
-  console.log("updated application", result)
+  //console.log("updated application", result)
 
   return dispatch({
         type: CHANGE_STATE,

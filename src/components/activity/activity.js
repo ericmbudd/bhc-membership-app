@@ -1,6 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Expo from 'expo'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import reducers from '../../reducers/root-reducer'
 import Header from '../header'
@@ -8,6 +10,7 @@ import Visit from './visit'
 
 import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
 import { withNavigation } from 'react-navigation';
+
 
 class Activity extends React.Component {
 
@@ -38,7 +41,15 @@ static navigationOptions = ({ navigation  }) => {
             }
         }
 
-    };
+    }
+
+    goBackWithData() {
+      this.props.navigation.state.params.returnData('2', 'Name of item');
+      this.props.navigation.goBack();
+    }
+
+
+
 
   render() {
     return (
@@ -50,6 +61,7 @@ static navigationOptions = ({ navigation  }) => {
    <View style={styles.leftFooterContainer}>
      <Text>Left</Text>
    </View>
+<TouchableOpacity onPress={() => this.goBackWithData()}>
    <View style={styles.rightFooterContainer}>
      <Image
       style={{width: 65, height: 65}}
@@ -57,6 +69,7 @@ static navigationOptions = ({ navigation  }) => {
     />
     <Text style={{fontSize: 48}}>➡</Text>
    </View>
+</TouchableOpacity>
   </View>
  </View>
     )
@@ -114,5 +127,15 @@ rightFooterContainer: {
  },
 });
 
+
+// const mapStateToProps = (state) => ({ applications: state.applications })
+//
+//
+// const mapDispatchToProps = (dispatch) => bindActionCreators({
+// changeState
+// }, dispatch)
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(Activity)
+//
 
 export default Activity
