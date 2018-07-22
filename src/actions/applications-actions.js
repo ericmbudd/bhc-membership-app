@@ -18,6 +18,7 @@ const listApplications = () => {
     fetch(url, opts)
     .then((result) => result.json())
     .then((result) => {
+      console.log("result", result)
       dispatch({ type: APPLICATIONS_LISTED, payload: result })
     })
     .catch((err) => {console.log('err', err)})

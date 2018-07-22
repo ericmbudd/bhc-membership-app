@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { StyleSheet, Text, View, Image, Icon, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { changeState } from '../actions/change-state'
 
 class Application extends Component {
 
@@ -29,8 +30,11 @@ class Application extends Component {
      icon = require("../../images/BHC_Logo.jpg")
    }
 
+
+ //<TouchableOpacity onPress={() => changeState(1)}>
  return (
-   <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { appState: this.props.img})}>
+  <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { appState: this.props.img})}>
+
    <View style = {styles.listItemContainer}>
     <View style= {styles.iconContainer}>
      <Image source={icon} style={styles.initStyle} resizeMode='contain' />
@@ -111,12 +115,13 @@ const styles = StyleSheet.create({
 
 
 
-//auth: state.auth,
-// const mapStateToProps = (state) => ({ applications: state.applications })
-// const mapDispatchToProps = (dispatch) => bindActionCreators({
-//
-// }, dispatch)
+// auth: state.auth,
+const mapStateToProps = (state) => ({ applications: state.applications })
 
-//export default connect(mapStateToProps, mapDispatchToProps)(Application)
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+changeState
+}, dispatch)
 
-export default Application
+export default connect(mapStateToProps, mapDispatchToProps)(Application)
+
+// export default Application
