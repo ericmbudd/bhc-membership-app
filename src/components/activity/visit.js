@@ -8,8 +8,7 @@ import reducers from '../../reducers/root-reducer'
 
 class Visit extends React.Component {
   render() {
-    //console.log(Expo)
-    console.log("this.props.application",this.props.application)
+
     return (
       (<View style={styles.mainContainer}>
           <View style={styles.scheduled}>
