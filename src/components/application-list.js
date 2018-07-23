@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 import { listApplications } from '../actions/applications-actions'
+import { listContacts } from '../actions/contacts-actions'
 import Application from './application'
 import { withNavigation } from 'react-navigation';
 
@@ -12,6 +13,7 @@ class ApplicationList extends Component {
     //console.log('ApplicationIndex mount')
     //console.log(Object.keys(this.props))
     this.props.listApplications({  }) //this.props.auth.token
+    this.props.listContacts({  })
   }
 
  render() {
@@ -58,7 +60,8 @@ const styles = StyleSheet.create({
 //auth: state.auth,
 const mapStateToProps = (state) => ({ applications: state.applications })
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  listApplications
+  listApplications,
+  listContacts
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApplicationList)

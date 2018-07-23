@@ -13,10 +13,10 @@ class Visit extends React.Component {
     return (
       (<View style={styles.mainContainer}>
           <View style={styles.scheduled}>
-            <Text style={{fontSize: 48}}>No Visits Scheduled</Text>
+            <Text style={styles.largeText}>No Visits Scheduled</Text>
           </View>
           <View style={styles.request}>
-            <Text style={{fontSize: 48}}>Send A Visit Request</Text>
+            <Text style={styles.largeText}>Send A Visit Request</Text>
             <View style={styles.commTypes}>
             <TouchableOpacity onPress={() => Communications.text(this.props.application.phone, 'omg I am sending this text from my app')}>
               <View style={styles.holder}>
@@ -75,6 +75,9 @@ const styles = StyleSheet.create({
  },
  text: {
    fontSize: 32,
+ },
+ largeText: {
+   fontSize: 48,
  },
 });
 
