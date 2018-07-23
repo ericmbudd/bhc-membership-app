@@ -18,7 +18,7 @@ const listContacts = () => {
     fetch(url, opts)
     .then((result) => result.json())
     .then((result) => {
-      console.log("result", result)
+      //console.log("result", result)
       dispatch({ type: CONTACTS_LISTED, payload: result })
     })
     .catch((err) => {console.log('err', err)})

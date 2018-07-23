@@ -10,6 +10,8 @@ import {
 import reducers from '../../reducers/root-reducer'
 import Header from '../header'
 import Visit from './visit'
+import References from './references'
+import ActivityComponent from './component-list'
 
 import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
 import { withNavigation } from 'react-navigation';
@@ -18,7 +20,6 @@ import { withNavigation } from 'react-navigation';
 class Activity extends React.Component {
 
   componentWillMount(){
-    console.log("this.props.navigation.state.params", this.props.navigation.state.params)
         const {setParams} = this.props.navigation;
         setParams({headerState: this.props.navigation.state.params.application.state});
 
@@ -88,12 +89,13 @@ static navigationOptions = ({ navigation  }) => {
     const prevStateIcon = this.pickIcon(APP_STATE_TABLE[this.props.navigation.state.params.application.state]['prev'])
 
     //console.log("this.props.img", this.props.img)
+    //console.log(const ComponentName = APP_STATE_TABLE[this.props.navigation.state.params.application.state]['component'])
 
 
     return (
       <View style={styles.mainContainer}>
   <View style={styles.contentContainer}>
-    <Visit application={this.props.navigation.state.params.application} />
+    <ActivityComponent tag={this.props.navigation.state.params.application.state} application={this.props.navigation.state.params.application} />
   </View>
   <View style={styles.footerContainer}>
 <TouchableOpacity onPress={() => this.goBackWithData(prevState)}>

@@ -3,10 +3,6 @@ import { CONTACTS_LISTED } from '../actions/contacts-actions.js'
 
 function ContactsReducer( state = null, action ) {
   const initialState = {}
-  //console.log("ContactsReducer state", state)
-  //console.log("ContactsReducer action type", action.type)
-
-console.log("contacts reducer")
 
   if ( state ) {
     switch (action.type) {
@@ -16,11 +12,11 @@ console.log("contacts reducer")
         let savedAppId = action.payload[0].applications_id
         for (let i = 0; i < action.payload.length;) {
           const contactsTypes = {}
-          console.log(action.payload[i].applications_id)
+          //console.log(action.payload[i].applications_id)
           savedAppId = action.payload[i].applications_id
 
           while (i < action.payload.length && savedAppId == action.payload[i].applications_id ) {
-            console.log(action.payload[i])
+            //console.log(action.payload[i])
             contactsTypes[action.payload[i].type] = action.payload[i]
             i++
           }
@@ -28,7 +24,7 @@ console.log("contacts reducer")
         }
 
           //applicationContacts[x.applications_id] = x
-          console.log("applicationsContacts", applicationsContacts)
+          //console.log("applicationsContacts", applicationsContacts)
           return applicationsContacts
 
       default:
