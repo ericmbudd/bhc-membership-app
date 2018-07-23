@@ -9,7 +9,7 @@ import reducers from '../../reducers/root-reducer'
 class Visit extends React.Component {
   render() {
     //console.log(Expo)
-
+    console.log("this.props.application",this.props.application)
     return (
       (<View style={styles.mainContainer}>
           <View style={styles.scheduled}>
@@ -18,7 +18,7 @@ class Visit extends React.Component {
           <View style={styles.request}>
             <Text style={{fontSize: 48}}>Send A Visit Request</Text>
             <View style={styles.commTypes}>
-            <TouchableOpacity onPress={() => Communications.text('3149419370', 'omg I am sending this text from my app')}>
+            <TouchableOpacity onPress={() => Communications.text(this.props.application.phone, 'omg I am sending this text from my app')}>
               <View style={styles.holder}>
                 <Image
                  style={{width: 65, height: 65}}

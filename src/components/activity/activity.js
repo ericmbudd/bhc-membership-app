@@ -93,7 +93,7 @@ static navigationOptions = ({ navigation  }) => {
     return (
       <View style={styles.mainContainer}>
   <View style={styles.contentContainer}>
-    <Visit />
+    <Visit application={this.props.navigation.state.params.application} />
   </View>
   <View style={styles.footerContainer}>
 <TouchableOpacity onPress={() => this.goBackWithData(prevState)}>
