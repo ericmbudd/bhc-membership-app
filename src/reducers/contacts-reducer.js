@@ -9,17 +9,28 @@ function ContactsReducer( state = null, action ) {
 console.log("contacts reducer")
 
   if ( state ) {
-    switch ( action.type ) {
+    switch (action.type) {
       case CONTACTS_LISTED:
-        const contacts = action.payload.reduce( ( acc, x ) => {
-          const newObj = {
-            ...acc
-          }
-          newObj[ x.id ] = x
+        const applicationsContacts = {}
 
-          return newObj
-        }, {} )
-        return contacts
+        let savedAppId = action.payload[0].applications_id
+        for (let i = 0; i < action.payload.length;) {
+          const contactsTypes = {}
+          console.log(action.payload[i].applications_id)
+          savedAppId = action.payload[i].applications_id
+
+          while (i < action.payload.length && savedAppId == action.payload[i].applications_id ) {
+            console.log(action.payload[i])
+            contactsTypes[action.payload[i].type] = action.payload[i]
+            i++
+          }
+          applicationsContacts[savedAppId] = contactsTypes
+        }
+
+          //applicationContacts[x.applications_id] = x
+          console.log("applicationsContacts", applicationsContacts)
+          return applicationsContacts
+
       default:
         return state
 
