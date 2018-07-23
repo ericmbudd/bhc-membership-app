@@ -17,7 +17,10 @@ class ActivityComponent extends React.Component {
     render() {
       console.log("ActivityComponent")
        const ComponentName = this.STATE_COMPONENT[this.props.tag]
-       return <ComponentName />
+       return <ComponentName
+         application={this.props.application}
+         contact={this.props.contact}
+       />
     }
 }
 

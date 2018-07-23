@@ -9,14 +9,14 @@ import reducers from '../../reducers/root-reducer'
 class References extends React.Component {
   render() {
     //console.log(Expo)
-    console.log("this.props.application",this.props.application)
+    console.log("References this.props",this.props)
     return (
       (<View style={styles.mainContainer}>
           <View style={styles.scheduled}>
             <Text style={styles.largeText}>No Referencess Scheduled</Text>
           </View>
           <View style={styles.request}>
-            <Text style={styles.largeText}>Send A References Request</Text>
+            <Text style={styles.largeText}>{this.props.contact.applicant.first_name}</Text>
             <View style={styles.commTypes}>
             <TouchableOpacity onPress={() => Communications.text(this.props.application.phone, 'omg I am sending this text from my app')}>
               <View style={styles.holder}>

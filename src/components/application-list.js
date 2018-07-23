@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 
 import { listApplications } from '../actions/applications-actions'
 import { listContacts } from '../actions/contacts-actions'
 import Application from './application'
-import { withNavigation } from 'react-navigation';
 
 class ApplicationList extends Component {
   componentDidMount() {
@@ -17,14 +16,13 @@ class ApplicationList extends Component {
   }
 
  render() {
- const applicationKeys = Object.keys(this.props.applications)
-
- let dataArray = []
+ const dataArray = []
 
  for (let key in this.props.applications) {
    this.props.applications[key].key = String(this.props.applications[key].id)
    dataArray.push(this.props.applications[key])
  }
+ //console.log("this.props.applications", this.props.applications["5"])
 
 //console.log(dataArray)
 
@@ -33,7 +31,7 @@ class ApplicationList extends Component {
    <FlatList
      data={dataArray}
      //renderItem={({item}) => <Text>{item.first_name} {item.last_name}</Text>}
-     renderItem={({item}) => <Application app={item} img={item.state} navigation={this.props.navigation} />}
+     renderItem={({item}) => <Application app={item} contact={this.props.contacts} img={item.state} navigation={this.props.navigation} />}
    />
  )
  }

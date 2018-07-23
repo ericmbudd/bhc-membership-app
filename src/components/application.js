@@ -8,14 +8,12 @@ import { changeState } from '../actions/change-state'
 class Application extends Component {
 
   returnData(appState) {
-    console.log("return data state", appState)
-    //<TouchableOpacity onPress={() => this.props.changeState(this.props.app.applications_id, this.props.app)}>
     this.props.changeState(this.props.app.applications_id, this.props.app, appState);
   }
 
  render() {
    let icon = ''
-   //console.log("this.props.img", this.props.img)
+   //console.log("this.props.contact", this.props.contact)
    switch (this.props.img) {
    case "fail":
      icon = require("../../images/states/fail.png")
@@ -38,10 +36,9 @@ class Application extends Component {
 
 
 
-
  return (
 
-    <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { application: this.props.app, returnData: this.returnData.bind(this)})}>
+    <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { application: this.props.app, contact: this.props.contact[String(this.props.app.applications_id)], returnData: this.returnData.bind(this)})}>
    <View style = {styles.listItemContainer}>
     <View style= {styles.iconContainer}>
      <Image source={icon} style={styles.initStyle} resizeMode='contain' />
@@ -123,7 +120,7 @@ const styles = StyleSheet.create({
 
 
 // auth: state.auth,
-const mapStateToProps = (state) => ({ applications: state.applications })
+const mapStateToProps = (state) => ({ applications: state.applications, contact: state.contacts })
 
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
