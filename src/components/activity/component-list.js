@@ -1,5 +1,7 @@
 import React from 'react'
 import Visit from './visit'
+import Fail from './fail'
+import Accepted from './accepted'
 import Interview from './app-details'
 import References from './references'
 
@@ -7,11 +9,11 @@ import References from './references'
 //<ComponentName />
 class ActivityComponent extends React.Component {
   STATE_COMPONENT = {
-    fail: 'Fail',
+    fail: Fail,
     visit: Visit,
     references: References,
     interview: Interview,
-    accepted: {},
+    accepted: Accepted,
   }
 
     render() {
