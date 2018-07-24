@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
  },
  detailText: {
    fontSize: 24,
-   marginBottom: 25
+   marginBottom: 25,
+   color: '#5b5b63'
  },
 })
 

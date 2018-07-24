@@ -7,7 +7,17 @@ import reducers from '../../reducers/root-reducer'
 
 
 class Visit extends React.Component {
+
   render() {
+    const visitText = `
+Hi ${this.props.contact.personal1.first_name}, thanks for applying to Ingram! Please pick a time to meet the Ingram Co-op.
+
+https://docs.google.com/forms/d/e/1FAIpQLScI7zlQTEbhYA7pHuAfymNzBamj_dEBe1m4ZqW9TZqYZwOucw/viewform?entry.1111365971=${this.props.contact.applicant.first_name}+${this.props.contact.applicant.last_name}&entry.514779411=${this.props.contact.applicant.email}
+
+Thank you,
+Ingram Co-op Membership Coordinator
+  `
+
 
     return (
       (<View style={styles.mainContainer}>
@@ -18,7 +28,7 @@ class Visit extends React.Component {
             <Text style={styles.largeText}>Send A Visit Request:</Text>
             <View style={styles.commTypes}>
             <View style={styles.commTypes}>
-              <TouchableOpacity onPress={() => Communications.text(this.props.contact.applicant.phone, 'omg I am sending this text from my app')}>
+              <TouchableOpacity onPress={() => Communications.text(this.props.contact.applicant.phone, visitText)}>
                   <Image
                    style={{ width: 45, height: 45 }}
                    source={require('../../../images/text.png')}
@@ -69,6 +79,7 @@ const styles = StyleSheet.create({
  request: {
     flex: 2,
     alignItems: "center",
+    justifyContent: 'space-evenly',
     paddingTop: 30,
  },
  commTypes: {
@@ -76,7 +87,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     flexDirection: 'row',
-    paddingTop: 50,
+    paddingTop: 0,
  },
  logoText: {
     color: "white",

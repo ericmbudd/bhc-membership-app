@@ -20,7 +20,7 @@ I'm sending an email to you because ${this.props.contact.personal1.first_name} $
 - Would you recommend this person as a tenant to a landlord?
 
 Thank you,
-Masala Co-op Membership Coordinator
+Ingram Co-op Membership Coordinator
 `
 
     return (

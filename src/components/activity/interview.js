@@ -10,7 +10,7 @@ class Interview extends React.Component {
             <Text style={styles.largeText}>No Interview Scheduled</Text>
           </View>
           <View style={styles.request}>
-            <Text style={styles.largeText}>Send An Interview Request:</Text>
+            <Text style={styles.largeText}>Send Interview Request:</Text>
             <View style={styles.commTypes}>
             <View style={styles.commTypes}>
               <TouchableOpacity onPress={() => Communications.text(this.props.contact.applicant.phone, 'omg I am sending this text from my app')}>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     flexDirection: 'row',
-    paddingTop: 50,
+    paddingTop: 0,
  },
  logoText: {
     color: "white",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
    fontSize: 32,
  },
  largeText: {
-   fontSize: 48,
+   fontSize: 40,
  },
 });
 
