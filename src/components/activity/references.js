@@ -8,16 +8,21 @@ import reducers from '../../reducers/root-reducer'
 
 class References extends React.Component {
   render() {
-    //console.log(Expo)
 
-    // <View style={styles.request}>
-    //   <Text style={styles.largeText}>{this.props.contact.applicant.first_name}</Text>
-    //   <View style={styles.commTypes}>
+    const referenceText = `
+Hi ${this.props.contact.personal1.first_name},
 
-    // </View>
-    // </View>
+I'm sending an email to you because ${this.props.contact.personal1.first_name} ${this.props.contact.personal1.last_name} listed you as a rental reference. ${this.props.contact.personal1.first_name} is applying to our housing cooperative in Boulder, Colorado, USA. Could you answer a few questions for me? Thanks!
 
-    //console.log("References this.props",this.props)
+- What is your relationship to the person?
+- How long have you known the person?
+- Tell me a little bit about the applicant’s character.
+- Would you recommend this person as a tenant to a landlord?
+
+Thank you,
+Masala Co-op Membership Coordinator
+`
+
     return (
       (<View style={styles.mainContainer}>
           <View style={styles.reference}>
@@ -31,7 +36,8 @@ class References extends React.Component {
                 />
                 <Text style={styles.text}>Text</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => Communications.email([this.props.contact.personal1.email], null, null, 'Reference check', 'omg I am sending this text from my app')}>
+            <TouchableOpacity onPress={() => Communications.email([this.props.contact.personal1.email], null, null,
+              `Reference request for ${this.props.contact.applicant.first_name} ${this.props.contact.applicant.last_name}`, referenceText)}>
                 <Image
                  style={{ width: 45, height: 45 }}
                  source={require('../../../images/mail.png')}

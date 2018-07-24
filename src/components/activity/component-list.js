@@ -2,7 +2,7 @@ import React from 'react'
 import Visit from './visit'
 import Fail from './fail'
 import Accepted from './accepted'
-import Interview from './app-details'
+import Interview from './interview'
 import References from './references'
 
 

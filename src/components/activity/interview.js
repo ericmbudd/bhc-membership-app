@@ -1,21 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import Expo from 'expo'
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import Communications from 'react-native-communications';
 
-import reducers from '../../reducers/root-reducer'
-
-
-class Visit extends React.Component {
+class Interview extends React.Component {
   render() {
-
     return (
       (<View style={styles.mainContainer}>
           <View style={styles.scheduled}>
-            <Text style={styles.largeText}>No Visits Scheduled</Text>
+            <Text style={styles.largeText}>No Interview Scheduled</Text>
           </View>
           <View style={styles.request}>
-            <Text style={styles.largeText}>Send A Visit Request:</Text>
+            <Text style={styles.largeText}>Send An Interview Request:</Text>
             <View style={styles.commTypes}>
             <View style={styles.commTypes}>
               <TouchableOpacity onPress={() => Communications.text(this.props.contact.applicant.phone, 'omg I am sending this text from my app')}>
@@ -98,4 +93,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Visit
+export default Interview

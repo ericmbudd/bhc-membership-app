@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 class Header extends Component {
 //<Text style={styles.header}>Test</Text>
   render() {
-    console.log("this.props.img", this.props.img)
+    //console.log("this.props.img", this.props.img)
     let icon = ''
     switch (this.props.img) {
     case "fail":
