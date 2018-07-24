@@ -82,7 +82,7 @@ static navigationOptions = ({ navigation  }) => {
 
 
   render() {
-    console.log('activity contact', this.props.navigation.state.params.contact)
+    //console.log('activity contact', this.props.navigation.state.params.contact)
     const nextState = APP_STATE_TABLE[this.props.navigation.state.params.application.state]['next']
     const prevState = APP_STATE_TABLE[this.props.navigation.state.params.application.state]['prev']
     const nextStateIcon = this.pickIcon(APP_STATE_TABLE[this.props.navigation.state.params.application.state]['next'])

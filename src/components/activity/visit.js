@@ -17,15 +17,30 @@ class Visit extends React.Component {
           <View style={styles.request}>
             <Text style={styles.largeText}>Send A Visit Request</Text>
             <View style={styles.commTypes}>
-            <TouchableOpacity onPress={() => Communications.text(this.props.application.phone, 'omg I am sending this text from my app')}>
-              <View style={styles.holder}>
-                <Image
-                 style={{width: 65, height: 65}}
-                 source={require("../../../images/text.png")}
-               />
-                <Text style={styles.text}>Text</Text>
-              </View>
-            </TouchableOpacity>
+            <View style={styles.commTypes}>
+              <TouchableOpacity onPress={() => Communications.text(this.props.contact.applicant.phone, 'omg I am sending this text from my app')}>
+                  <Image
+                   style={{ width: 45, height: 45 }}
+                   source={require('../../../images/text.png')}
+                  />
+                  <Text style={styles.text}>Text</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() =>
+                Communications.email([this.props.contact.applicant.email], null, null, 'Reference check', 'omg I am sending this text from my app')}>
+                  <Image
+                   style={{ width: 45, height: 45 }}
+                   source={require('../../../images/mail.png')}
+                  />
+                  <Text style={styles.text}>Email</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => Communications.phonecall(this.props.contact.applicant.phone, true)}>
+                  <Image
+                   style={{ width: 45, height: 45 }}
+                   source={require('../../../images/phone.png')}
+                  />
+                  <Text style={styles.text}>Phone</Text>
+              </TouchableOpacity>
+            </View>
           </View>
           </View>
          </View>
@@ -57,8 +72,10 @@ const styles = StyleSheet.create({
     paddingTop: 30,
  },
  commTypes: {
-    flex: 2,
-    alignItems: "center",
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    flexDirection: 'row',
     paddingTop: 50,
  },
  logoText: {
