@@ -12,12 +12,12 @@ class References extends React.Component {
     const referenceText = `
 Hi ${this.props.contact.personal1.first_name},
 
-I'm sending an email to you because ${this.props.contact.personal1.first_name} ${this.props.contact.personal1.last_name} listed you as a rental reference. ${this.props.contact.personal1.first_name} is applying to our housing cooperative in Boulder, Colorado, USA. Could you answer a few questions for me? Thanks!
+I'm sending an email to you because ${this.props.contact.applicant.first_name} ${this.props.contact.applicant.last_name} listed you as a personal reference. ${this.props.contact.applicant.first_name} is applying to our housing cooperative in Boulder, Colorado, USA. Could you answer a few questions for me? Thanks!
 
-- What is your relationship to the person?
-- How long have you known the person?
-- Tell me a little bit about the applicant’s character.
-- Would you recommend this person as a tenant to a landlord?
+- What is your relationship to ${this.props.contact.applicant.first_name}?
+- How long have you known ${this.props.contact.applicant.first_name}?
+- Tell me a little bit about ${this.props.contact.applicant.first_name}'s character.
+- Would you recommend ${this.props.contact.applicant.first_name} as a tenant to a landlord?
 
 Thank you,
 Ingram Co-op Membership Coordinator
