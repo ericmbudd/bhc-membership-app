@@ -166,7 +166,6 @@ rightFooterContainer: {
 },
  contentContainer: {
     flex: 6,
-    alignItems: "center",
     paddingTop: 30,
     borderBottomColor: "#444",
     borderBottomWidth: 5,

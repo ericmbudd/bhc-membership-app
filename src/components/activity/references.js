@@ -113,6 +113,7 @@ center: {
 },
  mainContainer: {
     //paddingTop: Expo.Constants.statusBarHeight,
+    paddingLeft: 50,
     flex: 1,
     backgroundColor: '#F5FCFF',
     height: 24

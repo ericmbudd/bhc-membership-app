@@ -1,7 +1,7 @@
 import React from 'react'
 import Visit from './visit'
+import Interview from './app-details'
 import References from './references'
-import { View, Text } from 'react-native';
 
 
 //<ComponentName />
@@ -10,7 +10,7 @@ class ActivityComponent extends React.Component {
     fail: 'Fail',
     visit: Visit,
     references: References,
-    interview: {},
+    interview: Interview,
     accepted: {},
   }
 
