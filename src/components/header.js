@@ -6,25 +6,29 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 class Header extends Component {
 //<Text style={styles.header}>Test</Text>
   render() {
+    console.log("this.props.img", this.props.img)
     let icon = ''
     switch (this.props.img) {
     case "fail":
-      icon = require("../../images/states/fail.png")
+      icon = require('../../images/states/fail.png')
       break
-    case "visit":
-      icon = require("../../images/states/visit.png")
+    case 'visit':
+      icon = require('../../images/states/visit.png')
       break
-    case "references":
-      icon = require("../../images/states/references.png")
+    case 'references':
+      icon = require('../../images/states/references.png')
       break
-    case "interview":
-      icon = require("../../images/states/interview.png")
+    case 'interview':
+      icon = require('../../images/states/interview.png')
       break
-    case "accepted":
-      icon = require("../../images/states/accepted.png")
+    case 'accepted':
+      icon = require('../../images/states/accepted.png')
+      break
+    case 'application details':
+      icon = require('../../images/application.png')
       break
     default:
-      icon = require("../../images/BHC_Logo.jpg")
+      icon = require('../../images/BHC_Logo.jpg')
     }
 
 

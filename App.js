@@ -12,6 +12,7 @@ import { createStackNavigator } from 'react-navigation'; // Version can be speci
 
 import Activity from './src/components/activity/activity'
 import ApplicationList from './src/components/application-list'
+import ApplicationDetail from './src/components/activity/app-details'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 const store = createStoreWithMiddleware(reducers)
@@ -46,6 +47,7 @@ const RootStack = createStackNavigator(
   {
     HomeScreen: HomeScreen,
     Activity: Activity,
+    ApplicationDetail: ApplicationDetail,
   },
   {
     initialRouteName: 'HomeScreen',

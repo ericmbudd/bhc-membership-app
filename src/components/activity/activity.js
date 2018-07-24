@@ -21,12 +21,12 @@ class Activity extends React.Component {
 
   componentWillMount(){
         const {setParams} = this.props.navigation;
-        setParams({headerState: this.props.navigation.state.params.application.state});
+        setParams({headerState: this.props.navigation.state.params.img});
 
-}
+  }
 
-static navigationOptions = ({ navigation  }) => {
-        const {state} = navigation;
+static navigationOptions = ({ navigation }) => {
+        const { state } = navigation
 
         let headerTitle = ''
 
@@ -45,7 +45,6 @@ static navigationOptions = ({ navigation  }) => {
                 }
             }
         }
-
     }
 
     goBackWithData(appState) {

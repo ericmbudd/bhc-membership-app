@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { StyleSheet, Text, View, Image, Icon, TouchableOpacity } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import { StyleSheet, Text, View, Image, Icon, TouchableOpacity } from 'react-native'
 import { changeState } from '../actions/change-state'
 
 class Application extends Component {
@@ -38,7 +37,11 @@ class Application extends Component {
 
  return (
 
-    <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { application: this.props.app, contact: this.props.contact[String(this.props.app.applications_id)], returnData: this.returnData.bind(this)})}>
+    <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity',
+      { application: this.props.app,
+        img: this.props.app.state,
+      contact: this.props.contact[String(this.props.app.applications_id)],
+      returnData: this.returnData.bind(this)})}>
    <View style = {styles.listItemContainer}>
     <View style= {styles.iconContainer}>
      <Image source={icon} style={styles.initStyle} resizeMode='contain' />
@@ -54,7 +57,17 @@ class Application extends Component {
         </View>
        </View>
      <View style={styles.callIconContainer}>
-
+       <TouchableOpacity
+         onPress={() => this.props.navigation.navigate('ApplicationDetail', {
+           application: this.props.app,
+           contact: this.props.contact[String(this.props.app.applications_id)],
+           img: 'application details',
+           returnData: this.returnData.bind(this)})} >
+       <Image
+         source={require("../../images/application.png")}
+         style={styles.appDetailStyle} resizeMode='contain'
+        />
+      </TouchableOpacity>
      </View>
     </View>
    </View>
@@ -106,12 +119,18 @@ const styles = StyleSheet.create({
   },
   callIconContainer: {
     flex: 1,
-    alignItems: "flex-end"
+    alignItems: "flex-end",
+    paddingRight: 20,
   },
   initStyle: {
     borderRadius: 30,
     width: 60,
     height: 60
+  },
+  appDetailStyle: {
+    borderRadius: 30,
+    width: 30,
+    height: 30,
   }
 })
 
